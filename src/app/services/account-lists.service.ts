@@ -1,6 +1,7 @@
-import { Lists } from "../models/lists.model";
+import { List, Lists } from "../models/lists.model";
 
 export class AccountListService {
+    // LISTS EXPENSES
     listsExpenses: Lists = [
         {
             name: "Despensa",
@@ -16,6 +17,7 @@ export class AccountListService {
         },
     ];
 
+    // LISTS INCOME
     listsIncome: Lists = [
         {
             name: "Despensa",
@@ -30,4 +32,16 @@ export class AccountListService {
             ammount: 18000000
         },
     ];
+
+    // ADD METHODS
+    addToListExpenses(item: List) {
+        this.listsExpenses.push(item)
+    }
+
+    addToListIncome(item: List) {
+        this.listsIncome.push(item)
+    }
+
+    // DELETE METHODS
+
 }
