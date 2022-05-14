@@ -1,13 +1,13 @@
-<form>
+<form (submit)="handleSubmit($event)">
     <div class="agregar">
         <div class="agregar_contenedor">
-            <select class="agregar_tipo" [value]="selectValue"(change)="selectChange($event)" ([ngModel])="seleccionado">
+            <select class="agregar_tipo" [value]="selectValue"(change)="selectChange($event)">
                 <option value="ing" selected>+</option>
                 <option value="egr" >-</option>
             </select>
-            <input type="text" class="agregar_descripcion" placeholder="Agregar Descripción">
-            <input type="number" class="agregar_valor" placeholder="Valor">
-            <button class="agregar_btn"><i class="ion-ios-checkmark-outline" (click)="addToList()"></i></button>
+            <input type="text" class="agregar_descripcion" placeholder="Agregar Descripción" name="description" [(ngModel)]="description" >
+            <input type="number" class="agregar_valor" placeholder="Valor" name="value" [value]="value" [(ngModel)]="value">
+            <button class="agregar_btn"><i class="ion-ios-checkmark-outline" type="submit"></i></button>
         </div>
     </div>
   </form>

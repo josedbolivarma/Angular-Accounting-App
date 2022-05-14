@@ -12,13 +12,10 @@ export class FormComponent implements OnInit {
   constructor(
     private accountListService: AccountListService
   ) { }
-
-  seleccionado = '';
-
-  ing: string = '';
-  egr: string = '';
   
-  selectValue = 'ing';
+  selectValue: string = 'ing';
+  description: string = '';
+  value: number = 0;
 
   ngOnInit(): void {
   }
@@ -29,18 +26,22 @@ export class FormComponent implements OnInit {
     this.selectValue = option;
   }
 
-
   addToList() {
     console.log(this.selectValue);
     const obj: List = {
-      name: "jose",
-      ammount: 120230103
+      name: this.description,
+      ammount: this.value
     }
     if( this.selectValue === 'ing') {
       this.accountListService.addToListIncome(obj)
     } else {
       this.accountListService.addToListExpenses(obj)
     }
+  }
+
+  handleSubmit(event: any) {
+    event.preventDefault();
+    this.addToList();
   }
 
 
