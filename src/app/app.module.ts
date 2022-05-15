@@ -7,13 +7,15 @@ import { ListIncomeComponent } from './components/list-income/list-income.compon
 import { ListExpensesComponent } from './components/list-expenses/list-expenses.component';
 import { AccountListService } from './services/account-lists.service';
 import { FormsModule } from '@angular/forms';
+import { BudgetComponent } from './components/budget/budget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     ListIncomeComponent,
-    ListExpensesComponent
+    ListExpensesComponent,
+    BudgetComponent
   ],
   imports: [
     BrowserModule,

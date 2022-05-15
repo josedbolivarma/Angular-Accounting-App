@@ -1,19 +1,16 @@
+import { Injectable } from "@angular/core";
 import { List, Lists } from "../models/lists.model";
 
 export class AccountListService {
     // LISTS EXPENSES
     listsExpenses: Lists = [
         {
-            name: "Despensa",
-            ammount: 900000
-        },
-        {
             name: "Computadora",
-            ammount: 20000000
+            ammount: 10
         },
         {
             name: "Oficina",
-            ammount: 18000000
+            ammount: 20
         },
     ];
 
@@ -21,15 +18,19 @@ export class AccountListService {
     listsIncome: Lists = [
         {
             name: "Despensa",
-            ammount: 900000
+            ammount: 100
         },
         {
             name: "Computadora",
-            ammount: 20000000
+            ammount: 200
         },
         {
             name: "Oficina",
-            ammount: 18000000
+            ammount: 180
+        },
+        {
+            name: "Despensa",
+            ammount: 10
         },
     ];
 

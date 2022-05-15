@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { List } from 'src/app/models/lists.model';
 import { AccountListService } from 'src/app/services/account-lists.service';
+import { ResultsService } from 'src/app/services/results-service.service';
 
 @Component({
   selector: 'app-form',
@@ -8,9 +9,11 @@ import { AccountListService } from 'src/app/services/account-lists.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  @Output() propagar = new EventEmitter<any>();
 
   constructor(
-    private accountListService: AccountListService
+    private accountListService: AccountListService,
+    private resultsService: ResultsService
   ) { }
   
   selectValue: string = 'ing';
@@ -34,9 +37,12 @@ export class FormComponent implements OnInit {
     }
     if( this.selectValue === 'ing') {
       this.accountListService.addToListIncome(obj)
+      this.resultsService.listsResultsIncome();
     } else {
       this.accountListService.addToListExpenses(obj)
+      this.resultsService.listsResultsExpenses();
     }
+    this.propagar.emit(obj)
   }
 
   handleSubmit(event: any) {
